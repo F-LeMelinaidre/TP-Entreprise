@@ -1,10 +1,9 @@
-import consoleView.ContractualTable;
-import consoleView.Menu;
-import consoleView.SalespersonTable;
-import consoleView.WorkerTable;
+import consoleView.*;
 import entity.contractual.Contractual;
 import entity.contractual.Manager;
 import entity.contractual.Salesperson;
+import entity.fonctionary.Fonctionary;
+import entity.personal.Person;
 import entity.sale.Sale;
 import entity.worker.Worker;
 import org.apache.logging.log4j.LogManager;
@@ -28,7 +27,7 @@ public class Main {
         Menu.getChoix(choix);*/
 
         Worker w1 = new Contractual("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
-        Worker w2 = new Worker("Yves", "Rogne", "23/06/1985", null, WorkerType.FONCTIONNAIRE, ContractType.CDD);
+        Worker w2 = new Fonctionary("Yves", "Rogne", "23/06/1985", null);
         Worker w3 = new Worker("Claire", "Hyères", "16/11/1978", null, WorkerType.INTERIMAIRE, ContractType.CDI);
         Worker w4 = new Salesperson("André", "Céouver", "23/01/2001", null, ContractType.CDI);
         Worker w5 = new Manager("Jean-Marie", "Deuz", "09/07/1992", null, ContractType.CDI);
@@ -51,12 +50,14 @@ public class Main {
         workers.add(w4);
         workers.add(w5);
         workers.add(w6);
-        WorkerTable workerTableau = new WorkerTable(workers);
-        workerTableau.render();
+        WorkerTable workerTable = new WorkerTable(workers);
+        System.out.println("Tableau des employés");
+        workerTable.render();
 
         List<Salesperson> salespersons = new ArrayList<>();
         salespersons.add(sp4);
         SalespersonTable salespersonTable = new SalespersonTable(salespersons);
+        System.out.println("Tableau des commerciaux");
         salespersonTable.render();
 
         Contractual c1 = (Contractual) w1;
@@ -65,8 +66,36 @@ public class Main {
         contractual.add(c1);
         contractual.add(sp4);
         contractual.add(m5);
-        ContractualTable contractualTableau = new ContractualTable(contractual);
-        contractualTableau.render();
+        ContractualTable contractualTable = new ContractualTable(contractual);
+        System.out.println("Tableau des contractuels");
+        contractualTable.render();
+
+        Fonctionary f1 = (Fonctionary) w2;
+
+        List<Fonctionary> fonctionaries = new ArrayList<>();
+        fonctionaries.add(f1);
+        FonctionaryTable fonctionaryTable = new FonctionaryTable(fonctionaries);
+        System.out.println("Tableau des fonctionnaires");
+        fonctionaryTable.render();
+
+
+
+        List<Manager> manager = new ArrayList<>();
+        manager.add(m5);
+        ManagerTable managerTable = new ManagerTable(manager);
+        System.out.println("Tableau des managers");
+        managerTable.render();
+
+        List<Person> persons = new ArrayList<>();
+        persons.add(w1);
+        persons.add(w2);
+        persons.add(w3);
+        persons.add(w4);
+        persons.add(w5);
+        persons.add(w6);
+        PersonTable personTable = new PersonTable(persons);
+        System.out.println("Tableau du personnel");
+        personTable.render();
 
     }
 }

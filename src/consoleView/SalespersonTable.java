@@ -16,7 +16,7 @@ public class SalespersonTable extends Table<Salesperson> {
     @Override
     protected String[] getColumnNames() {
         return new String[]{"Nom", "Prénom", "Date de naissance", "Contrat", "Indice", "Commission",
-                "Salaire du mois", "Chiffre d'affaire du mois", };
+                "Salaire du mois", "Nb vente", "Chiffre d'affaire du mois", };
     }
 
     @Override
@@ -29,6 +29,7 @@ public class SalespersonTable extends Table<Salesperson> {
                 Double.toString(salesperson.getHintValue()),
                 Salesperson.COMMISSION_RATE + "%",
                 salesperson.getSalary() + "€",
+                Integer.toString(salesperson.getTotalSales()),
                 salesperson.getMonthlySales() + "€"
         };
     }

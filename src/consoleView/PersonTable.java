@@ -21,6 +21,7 @@ public class PersonTable extends Table<Person> {
                 person.getLastName(),
                 person.getFirstName(),
                 person.getDateOfBirth(),
+                String.valueOf(person.getAge())
         };
     }
 }
