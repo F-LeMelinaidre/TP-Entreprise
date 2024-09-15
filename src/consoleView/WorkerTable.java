@@ -12,7 +12,7 @@ public class WorkerTable extends Table<Worker> {
 
     @Override
     protected String[] getColumnNames() {
-        return new String[]{"Nom", "Prénom", "Date de naissance", "Categorie", "Contrat", "Indice"};
+        return new String[]{"Nom", "Prénom", "Date de naissance", "Categorie", "Contrat", "Indice", "Salaire"};
     }
 
     @Override
@@ -23,7 +23,8 @@ public class WorkerTable extends Table<Worker> {
                 worker.getDateOfBirth(),
                 worker.getWorkerType().toString(),
                 worker.getContractType().toString(),
-                Double.toString(worker.getHintValue())
+                Double.toString(worker.getHintValue()),
+                Double.toString(worker.getSalary()),
         };
     }
 }

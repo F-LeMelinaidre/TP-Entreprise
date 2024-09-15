@@ -1,5 +1,6 @@
 package entity.worker;
 
+import entity.contractual.Salesperson;
 import entity.personal.Person;
 import props.ContractType;
 import props.Hint;
@@ -9,7 +10,6 @@ public class Worker extends Person implements IWorker {
 
     protected static final int BASIC_SALARY = 1383;
     protected ContractType contractType;
-    protected double salary;
     protected WorkerType workerType;
     protected Hint hint;
     protected double hintValue;
@@ -23,7 +23,6 @@ public class Worker extends Person implements IWorker {
         this.contractType   = contractType;
         this.hint           = this.workerType.getHint();
         this.hintValue      = this.hint.getValue();
-        this.salary         = this.calculateSalary();
 
         this.validate();
     }
@@ -76,7 +75,7 @@ public class Worker extends Person implements IWorker {
     }
     @Override
     public double getSalary() {
-        return this.salary;
+        return this.calculateSalary();
     }
 
     @Override

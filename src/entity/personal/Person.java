@@ -4,13 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import entity.contractual.Contractual;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Person implements IPerson {
 
-    protected static final Logger logger = LogManager.getLogger(Contractual.class);
+    protected static final Logger logger = LogManager.getLogger(Person.class);
     protected String lastName;
     protected String firstName;
     protected Calendar dateOfBirth = Calendar.getInstance();

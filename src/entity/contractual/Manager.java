@@ -18,21 +18,21 @@ public class Manager extends Contractual implements IManager {
 
     @Override
     public List<Worker> getWorkers() {
-        return workersList;
+        return this.workersList;
     }
 
     @Override
     public void addWorker(Worker worker) {
-        workersList.add(worker);
+        this.workersList.add(worker);
     }
 
     @Override
     public void removeWorker(Worker worker) {
-        workersList.remove(worker);
+        this.workersList.remove(worker);
     }
 
     @Override
     public int getWorkerCount() {
-        return workersList.size();
+        return this.workersList.size();
     }
 }

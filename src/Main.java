@@ -1,6 +1,11 @@
 import consoleView.WorkerTable;
+import entity.contractual.Contractual;
 import entity.contractual.Manager;
+import entity.contractual.Salesperson;
+import entity.sale.Sale;
 import entity.worker.Worker;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import props.ContractType;
 import props.WorkerType;
 
@@ -8,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
     public static void main(String[] args) {
 
         /*Person p1 = new Person("pierre-henry jean ", "Bon", "12/04/1976");
@@ -25,7 +31,7 @@ public class Main {
         Worker w1 = new Worker("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
         Worker w2 = new Worker("Yves", "Rogne", "23/06/1985", null, WorkerType.FONCTIONNAIRE, ContractType.CDD);
         Worker w3 = new Worker("Claire", "Hyères", "16/11/1978", null, WorkerType.INTERIMAIRE, ContractType.CDI);
-        Worker w4 = new Worker("André", "Céouver", "23/01/2001", null, WorkerType.COMMERCIAL, ContractType.CDI);
+        Worker w4 = new Salesperson("André", "Céouver", "23/01/2001", null, ContractType.CDI);
         Worker w5 = new Manager("Jean-Marie", "Deuz", "09/07/1992", null, ContractType.CDI);
 
 
@@ -33,6 +39,11 @@ public class Main {
         m5.addWorker(w2);
         m5.addWorker(w3);
 
+        Salesperson sp4 = (Salesperson) w4;
+        sp4.addSale(new Sale("12/09/2024", "Truc", 5, 120));
+        sp4.addSale(new Sale("08/09/2024", "Bidule", 50, 60));
+        sp4.addSale(new Sale("02/09/2024", "Chose", 300, 30));
+        System.out.println(sp4.getMonthlySales());
 
         List<Worker> workers = new ArrayList<>();
         workers.add(w1);
