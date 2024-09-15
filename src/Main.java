@@ -43,7 +43,6 @@ public class Main {
         sp4.addSale(new Sale("12/09/2024", "Truc", 5, 120));
         sp4.addSale(new Sale("08/09/2024", "Bidule", 50, 60));
         sp4.addSale(new Sale("02/09/2024", "Chose", 300, 30));
-        System.out.println(sp4.getMonthlySales());
 
         List<Worker> workers = new ArrayList<>();
         workers.add(w1);

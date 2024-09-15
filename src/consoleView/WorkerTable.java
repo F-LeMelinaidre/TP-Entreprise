@@ -24,7 +24,7 @@ public class WorkerTable extends Table<Worker> {
                 worker.getWorkerType().toString(),
                 worker.getContractType().toString(),
                 Double.toString(worker.getHintValue()),
-                Double.toString(worker.getSalary()),
+                worker.getSalary() + " €",
         };
     }
 }
