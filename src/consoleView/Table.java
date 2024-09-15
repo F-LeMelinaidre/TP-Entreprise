@@ -1,8 +1,6 @@
 package consoleView;
 
 import asset.SimpleTableBorder;
-import entity.contractual.Contractual;
-import entity.personal.Person;
 
 import java.util.List;
 

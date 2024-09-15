@@ -16,7 +16,10 @@ import java.util.List;
 
 public class Main {
 
+    private static final int MAIN_MENU = 1;
+
     public static void main(String[] args) {
+
 
         /*Menu menu = new Menu();
         ArrayList<String> choix = new ArrayList<String>();
@@ -26,7 +29,7 @@ public class Main {
         choix.add("Salesperson");
         Menu.getChoix(choix);*/
 
-        Worker w1 = new Contractual("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
+        /*Worker w1 = new Contractual("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
         Worker w2 = new Fonctionary("Yves", "Rogne", "23/06/1985", null);
         Worker w3 = new Worker("Claire", "Hyères", "16/11/1978", null, WorkerType.INTERIMAIRE, ContractType.CDI);
         Worker w4 = new Salesperson("André", "Céouver", "23/01/2001", null, ContractType.CDI);
@@ -95,7 +98,49 @@ public class Main {
         persons.add(w6);
         PersonTable personTable = new PersonTable(persons);
         System.out.println("Tableau du personnel");
-        personTable.render();
+        personTable.render();*/
 
+        handleApp();
+
+    }
+
+    private static void handleApp() {
+        boolean end = false;
+
+        int choice   = getChoice(MAIN_MENU);
+        int lastMenu = 0;
+
+        while (!end) {
+            switch (choice) {
+                case - 1:
+                    end = true;
+                    break;
+                case MAIN_MENU:
+                    lastMenu = choice;
+                    choice = getChoice(choice);
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    private static int getChoice(int choice) {
+        int rep = 0;
+        switch (choice) {
+            case MAIN_MENU:
+                break;
+            default:
+            break;
+        }
+
+        return rep;
+    }
+
+    private int handleMainMenu() {
+        int rep;
+
+
+        return rep = 0;
     }
 }
