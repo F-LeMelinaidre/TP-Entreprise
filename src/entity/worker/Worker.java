@@ -1,5 +1,6 @@
 package entity.worker;
 
+import entity.contractual.Contractual;
 import entity.contractual.Salesperson;
 import entity.personal.Person;
 import props.ContractType;
@@ -29,7 +30,7 @@ public class Worker extends Person implements IWorker {
 
     @Override
     public void validate() {
-        if (this.workerType == WorkerType.INTERIMAIRE || this.workerType == WorkerType.FONCTIONNAIRE) {
+        if (this instanceof Contractual && (this.workerType == WorkerType.INTERIMAIRE || this.workerType == WorkerType.FONCTIONNAIRE)) {
             logger.error(
                     "\u001B[31mTentative de création d'un employé Contractual avec un type " + this.workerType + " : \u001B[0m" + this.lastName + " " + this.firstName);
 
@@ -78,6 +79,10 @@ public class Worker extends Person implements IWorker {
         return this.calculateSalary();
     }
 
+    /**
+     * Calcul le salaire en fonction d'un indice props/Hint
+     * @return
+     */
     @Override
     public double calculateSalary() {
         double hint = this.workerType.getHint().getValue();

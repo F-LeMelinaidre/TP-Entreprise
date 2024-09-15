@@ -11,7 +11,7 @@ import java.util.List;
 
 public class Salesperson extends Contractual implements ISalesperson {
 
-    protected static final double COMMISSION_RATE = 1.0;
+    public static final double COMMISSION_RATE = 1.0;
     List<Sale> salesList = new ArrayList<>();
 
     public Salesperson(String firstName, String lastName, String dateOfBirth, Integer workerId,
@@ -49,11 +49,18 @@ public class Salesperson extends Contractual implements ISalesperson {
         return sumMonthlySales;
     }
 
+    /**
+     * Calcul le salaire en fonction d'un indice props/Hint
+     * Salesperson étant un Contractuel, peux avoir un indice en plus de la commission
+     * Par defaut il est de 1
+     * @return Salaire de base + indice + commission
+     */
     @Override
     public double calculateSalary() {
 
+        double baseSalary = super.calculateSalary();
         double commission = Math.round((this.getMonthlySales() * (COMMISSION_RATE/100)) * 100) / 100;
 
-        return (double) BASIC_SALARY + commission;
+        return (double) baseSalary + commission;
     }
 }

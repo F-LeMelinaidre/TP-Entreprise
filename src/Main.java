@@ -1,3 +1,6 @@
+import consoleView.ContractualTable;
+import consoleView.Menu;
+import consoleView.SalespersonTable;
 import consoleView.WorkerTable;
 import entity.contractual.Contractual;
 import entity.contractual.Manager;
@@ -16,23 +19,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*Person p1 = new Person("pierre-henry jean ", "Bon", "12/04/1976");
-        Person p2 = new Person("Yves", "Rogne", "23/06/1985");
-        Person p3 = new Person("Claire", "Hyères", "16/11/1978");
-        Person p4 = new Person("André", "Céouver", "23/01/2001");
-        List<Person> persons = new ArrayList<>();
-        persons.add(p1);
-        persons.add(p2);
-        persons.add(p3);
-        persons.add(p4);
-        PersonTable personTableau = new PersonTable(persons);
-        personTableau.render();*/
+        /*Menu menu = new Menu();
+        ArrayList<String> choix = new ArrayList<String>();
+        choix.add("Sale");
+        choix.add("Contract");
+        choix.add("Manager");
+        choix.add("Salesperson");
+        Menu.getChoix(choix);*/
 
-        Worker w1 = new Worker("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
+        Worker w1 = new Contractual("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
         Worker w2 = new Worker("Yves", "Rogne", "23/06/1985", null, WorkerType.FONCTIONNAIRE, ContractType.CDD);
         Worker w3 = new Worker("Claire", "Hyères", "16/11/1978", null, WorkerType.INTERIMAIRE, ContractType.CDI);
         Worker w4 = new Salesperson("André", "Céouver", "23/01/2001", null, ContractType.CDI);
         Worker w5 = new Manager("Jean-Marie", "Deuz", "09/07/1992", null, ContractType.CDI);
+        Worker w6 = new Contractual("Kelly", "Dyaute", "23/02/1982", null, WorkerType.FONCTIONNAIRE, ContractType.CDD);
 
 
         Manager m5 = (Manager) w5;
@@ -50,20 +50,23 @@ public class Main {
         workers.add(w3);
         workers.add(w4);
         workers.add(w5);
+        workers.add(w6);
         WorkerTable workerTableau = new WorkerTable(workers);
         workerTableau.render();
 
-        /*Contractual c1 = new Contractual("Jean", "Bon", "12/04/1976", null, WorkerType.ADMINISTRATIF, ContractType.CDI);
-        Contractual c2 = new Contractual("Yves", "Rogne", "23/06/1985", null, WorkerType.FONCTIONNAIRE, ContractType.CDD);
-        Contractual c3 = new Contractual("Claire", "Hyères", "16/11/1978", null, WorkerType.INTERIMAIRE, ContractType.CDI);
-        Contractual c4 = new Contractual("André", "Céouver", "23/01/2001", null, WorkerType.COMMERCIAL, ContractType.CDI);
+        List<Salesperson> salespersons = new ArrayList<>();
+        salespersons.add(sp4);
+        SalespersonTable salespersonTable = new SalespersonTable(salespersons);
+        salespersonTable.render();
+
+        Contractual c1 = (Contractual) w1;
+
         List<Contractual> contractual = new ArrayList<>();
         contractual.add(c1);
-        contractual.add(c2);
-        contractual.add(c3);
-        contractual.add(c4);
+        contractual.add(sp4);
+        contractual.add(m5);
         ContractualTable contractualTableau = new ContractualTable(contractual);
-        contractualTableau.render();*/
+        contractualTableau.render();
 
     }
 }
