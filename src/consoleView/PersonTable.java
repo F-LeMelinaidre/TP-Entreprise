@@ -12,12 +12,13 @@ public class PersonTable extends Table<Person> {
 
     @Override
     protected String[] getColumnNames() {
-        return new String[] {"Nom", "Prénom", "Date de naissance", "Age"};
+        return new String[] {"Identifiant", "Nom", "Prénom", "Date de naissance", "Age"};
     }
 
     @Override
     protected String[] getValues(Person person) {
         return new String[]{
+                Long.toString(person.getId()),
                 person.getLastName(),
                 person.getFirstName(),
                 person.getDateOfBirth(),

@@ -15,13 +15,14 @@ public class SalespersonTable extends Table<Salesperson> {
 
     @Override
     protected String[] getColumnNames() {
-        return new String[]{"Nom", "Prénom", "Date de naissance", "Contrat", "Indice", "Commission",
+        return new String[]{"Identifiant", "Nom", "Prénom", "Date de naissance", "Contrat", "Indice", "Commission",
                 "Salaire du mois", "Nb vente", "Chiffre d'affaire du mois", };
     }
 
     @Override
     protected String[] getValues(Salesperson salesperson) {
         return new String[]{
+                Long.toString(salesperson.getId()),
                 salesperson.getLastName(),
                 salesperson.getFirstName(),
                 salesperson.getDateOfBirth(),

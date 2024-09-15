@@ -12,12 +12,13 @@ public class WorkerTable extends Table<Worker> {
 
     @Override
     protected String[] getColumnNames() {
-        return new String[]{"Nom", "Prénom", "Date de naissance", "Categorie", "Contrat", "Indice", "Salaire"};
+        return new String[]{"Identifiant", "Nom", "Prénom", "Date de naissance", "Categorie", "Contrat", "Indice", "Salaire"};
     }
 
     @Override
     protected String[] getValues(Worker worker) {
         return new String[]{
+                Long.toString(worker.getId()),
                 worker.getLastName(),
                 worker.getFirstName(),
                 worker.getDateOfBirth(),

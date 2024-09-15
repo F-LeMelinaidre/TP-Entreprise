@@ -10,16 +10,37 @@ import org.apache.logging.log4j.Logger;
 public class Person implements IPerson {
 
     protected static final Logger logger = LogManager.getLogger(Person.class);
+    private static final long LIMIT = 10000000000L;
+    private static long last = 0;
+
+    protected long id;
     protected String lastName;
     protected String firstName;
     protected Calendar dateOfBirth = Calendar.getInstance();
     protected Integer age; // Integer permet une valeur Null
 
     public Person(String firstName, String lastName, String dateOfBirth) {
+        this.id = generateId();
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = this.parseDate(dateOfBirth);
+    }
 
+    @Override
+    public long getId() {
+        return this.id;
+    }
+
+    private static long getLast() {
+        return last;
+    }
+
+    private static long generateId() {
+        long id = System.currentTimeMillis() % LIMIT;
+        if ( id <= last ) {
+            id = (last + 1) % LIMIT;
+        }
+        return last = id;
     }
 
     @Override

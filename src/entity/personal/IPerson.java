@@ -1,7 +1,11 @@
 package entity.personal;
 
 public interface IPerson {
+
+    public long getId();
+
     public String getLastName();
+
     public void setLastName(String lastName);
 
     public String getFirstName();

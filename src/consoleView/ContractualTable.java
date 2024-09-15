@@ -11,12 +11,13 @@ public class ContractualTable extends Table<Contractual> {
 
     @Override
     protected String[] getColumnNames() {
-        return new String[] {"Nom", "Prénom", "Date de naissance", "Categorie", "Contrat"};
+        return new String[] {"Identifiant", "Nom", "Prénom", "Date de naissance", "Categorie", "Contrat"};
     }
 
     @Override
     protected String[] getValues(Contractual contractual) {
         return new String[]{
+                Long.toString(contractual.getId()),
                 contractual.getLastName(),
                 contractual.getFirstName(),
                 contractual.getDateOfBirth(),

@@ -12,12 +12,13 @@ public class ManagerTable extends Table<Manager> {
 
     @Override
     protected String[] getColumnNames() {
-        return new String[]{"Nom", "Prénom", "Date de naissance", "Contrat", "Effectif"};
+        return new String[]{"Identifiant", "Nom", "Prénom", "Date de naissance", "Contrat", "Effectif"};
     }
 
     @Override
     protected String[] getValues(Manager manager) {
         return new String[]{
+                Long.toString(manager.getId()),
                 manager.getLastName(),
                 manager.getFirstName(),
                 manager.getDateOfBirth(),
